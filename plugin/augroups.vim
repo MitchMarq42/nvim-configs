@@ -7,7 +7,7 @@ augroup END
 " convert markdown to html
 augroup markdown
     autocmd!
-    autocmd BufWritePost *.md silent !markdown % > %:r.html
+    autocmd BufWritePost *.md silent !comrak % > %:r.html
 augroup END
 
 " re-source any .vim files when you save them
