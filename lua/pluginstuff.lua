@@ -35,13 +35,14 @@ return require('packer').startup(function(use)
   use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
   -- LSP stuff. May change or be destroyed.
   use 'neovim/nvim-lspconfig'
-  use 'tami5/lspsaga.nvim'
-  use 'hrsh7th/cmp-nvim-lsp'            -- These three probably
-  use 'hrsh7th/cmp-buffer'              -- do something, but
-  use 'hrsh7th/nvim-cmp'                -- I'm not sure what.
-  use 'onsails/lspkind-nvim'
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
+  -- use 'tami5/lspsaga.nvim'
+  -- use 'hrsh7th/cmp-nvim-lsp'            -- These three probably
+  -- use 'hrsh7th/cmp-buffer'              -- do something, but
+  -- use 'hrsh7th/nvim-cmp'                -- I'm not sure what.
+  -- use 'onsails/lspkind-nvim'
+  -- use 'nvim-lua/popup.nvim'
+  -- use 'nvim-lua/plenary.nvim'
+  use 'dense-analysis/ale'
 
 require('fine-cmdline').setup({
   cmdline = {
@@ -78,8 +79,9 @@ require'nvim-treesitter.configs'.setup {
    indent = { enable = true }
 }
    vim.cmd [[:silent! TSEnableAll regex]]
-  local cmp = require('cmp')
-  cmp.setup { sources = { { name = 'nvim_lsp' }, } }
+  -- local cmp = require('cmp')
+  -- cmp.setup { sources = { { name = 'nvim_lsp' }, } }
+  require'lspconfig'.bashls.setup{}
 
   if packer_bootstrap then
     require('packer').sync()

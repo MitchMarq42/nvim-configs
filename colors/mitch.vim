@@ -65,6 +65,7 @@ highlight RedRed 	    	guibg=red    	guifg=red
 highlight BlackBlack   		guibg=black 	guifg=black
 highlight GrayGray 	    	guibg=#303030 	guifg=#303030
 highlight TabLineFill       guibg=#303030   guifg=#303030
+highlight Folded            guibg=none      guifg=#0088ff	gui=bold
 
 let g:scrollbar_highlight = {
   \ 'head': 'Comment',
