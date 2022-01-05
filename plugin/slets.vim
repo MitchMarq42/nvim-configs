@@ -7,9 +7,10 @@ let g:loaded_perl_provider = 0
 set pyx=3
 
 " generally good/useful things
+set termguicolors
 set linebreak
 set encoding=utf-8
-set mouse=a
+set mouse=n
 set number relativenumber
 set signcolumn=number
 set noswapfile undofile undodir=~/.cache/nvim/undo
