@@ -19,7 +19,7 @@ if has("conceal")
 endif
 
 " Prefer Vim help instead of manpages.
-setlocal keywordprg=:help
+setlocal keywordprg=:vert\ help
 
 if !exists('g:no_plugin_maps')
   function! s:show_toc() abort

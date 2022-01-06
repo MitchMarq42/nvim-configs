@@ -11,6 +11,19 @@ lua require('pluginstuff')
 " Fix folding
 set foldmethod=marker
 set foldmarker={,}
+hi link Comment Folded
+set foldtext=MyFoldText()
+function MyFoldText()
+  let line = getline(v:foldstart)
+  let sub = substitute(line, '/\*\|\*/\|{\d\=', '', 'g')
+  return sub
+endfunction
+
+" {This is a fold
+" And some more text
+" And everything
+" And mor-1e
+" }
 
 colorscheme mitch
 let g:airline_theme='ravenpower'

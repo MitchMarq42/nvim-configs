@@ -38,7 +38,7 @@ if !exists('g:no_plugin_maps') && !exists('g:no_man_maps')
 "  else
 "    nnoremap <silent> <buffer> <nowait> q :lclose<CR><C-W>c
 "  endif
-  nnoremap <silent> <buffer> q              ZQ
+  nnoremap <silent> <buffer> q              :wincmd q
 endif
 
 if get(g:, 'ft_man_folding_enable', 0)
