@@ -7,7 +7,8 @@ augroup END
 " convert markdown to html
 augroup markdown
     autocmd!
-    autocmd BufWritePost *.md silent !comrak % > %:r.html
+    autocmd BufNewFile *.md silent 0read $XDG_CONFIG_HOME/nvim/autoload/resources/markdown/header.md
+    autocmd BufWritePost *.md silent !markdown-calibre % > %:r.html
 augroup END
 
 " re-source any .vim files when you save them
