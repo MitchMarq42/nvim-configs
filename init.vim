@@ -19,14 +19,9 @@ function MyFoldText()
   return sub
 endfunction
 
-" {This is a fold
-" And some more text
-" And everything
-" And mor-1e
-" }
-
 colorscheme mitch
 let g:airline_theme='ravenpower'
 
 " EXPERINENTAL FEATURE. WILL NOT WORK IN YOUR VIM.
 silent! set cmdheight=0
+silent! set guifont=MesloLGS\ NF
