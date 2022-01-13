@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
     'n', '/',
-    '<cmd>lua require("searchbox").incsearch()<CR>',
+    '<cmd>lua require("searchbox").match_all(clear_matches=true)<CR>',
     {noremap = true}
 )
 
