@@ -82,7 +82,7 @@ return require('packer').startup(function(use)
     }
     local cmp = require('cmp')
     cmp.setup { sources = { { name = 'nvim_lsp' }, } }
-    require'lspconfig'.bashls.setup{}
+    -- require'lspconfig'.bashls.setup{}
 
     -- All plugins before this line
     if packer_bootstrap then
