@@ -28,7 +28,6 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline'         -- sorta epic statusline
     use 'vim-airline/vim-airline-themes'  -- themes for above
     use 'pprovost/vim-ps1'                -- PowerShell highlighting etc
-    use 'chrisbra/unicode.vim'            -- Maybe do unicode things
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
