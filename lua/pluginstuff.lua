@@ -11,11 +11,11 @@ vim.api.nvim_set_keymap(
     '<cmd>lua require("fine-cmdline").open()<CR>',
     {noremap = true}
 )
-vim.api.nvim_set_keymap(
-    'n', '/',
-    '<cmd>lua require("searchbox").match_all(clear_matches=true)<CR>',
-    {noremap = true}
-)
+-- vim.api.nvim_set_keymap(
+--     'n', '/',
+--     '<cmd>lua require("searchbox").match_all(clear_matches=true)<CR>',
+--     {noremap = true}
+-- )
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'          -- This plugin
