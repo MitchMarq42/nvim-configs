@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline'         -- sorta epic statusline
     use 'vim-airline/vim-airline-themes'  -- themes for above
     use 'pprovost/vim-ps1'                -- PowerShell highlighting etc
+    -- use 'windwp/floatline.nvim'           -- float current statusline
+    use 'vimpostor/vim-tpipeline'         --vim statusline in tmux
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
@@ -84,6 +86,10 @@ return require('packer').startup(function(use)
     cmp.setup { sources = { { name = 'nvim_lsp' }, } }
     -- require'lspconfig'.bashls.setup{}
 
+    -- require('floatline').setup()
+    vim.cmd[[
+        set laststatus=0
+    ]]
     -- All plugins before this line
     if packer_bootstrap then
         require('packer').sync()
