@@ -4,32 +4,32 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
-    Plug 'wbthomason/packer.nvim'          " This plugin
     Plug 'equalsraf/neovim-gui-shim'       " Boilerplate for nvim-qt
     Plug 'mattn/emmet-vim'                 " Magic HTML IDE thingy
     Plug 'tpope/vim-commentary'            " comment with gcc
     Plug 'tpope/vim-surround'              " add surroundings with ys
     Plug 'tpope/vim-repeat'                " boring re-repeat repeater .
+    Plug 'junegunn/goyo.vim'               " Remove distractions with :Goyo
     Plug 'Xuyuanp/scrollbar.nvim'          " Actually good scrollbar
     Plug 'vim-airline/vim-airline'         " sorta epic statusline
     Plug 'vim-airline/vim-airline-themes'  " themes for above
     Plug 'pprovost/vim-ps1'                " PowerShell highlighting etc
     Plug 'vimwiki/vimwiki'                 " html wiki thing
     Plug 'vimpostor/vim-tpipeline'         " vim statusline in tmux
-    Plug 'TimUntersberger/neogit' | Plug 'nvim-lua/plenary.nvim'
+    " Plug 'TimUntersberger/neogit' | Plug 'nvim-lua/plenary.nvim'
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/cmp-nvim-lsp'            " These three probably
-    Plug 'hrsh7th/cmp-buffer'              " do something, but
-    Plug 'hrsh7th/nvim-cmp'                " I'm not sure what.
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'hrsh7th/cmp-nvim-lsp'            " These three probably
+    " Plug 'hrsh7th/cmp-buffer'              " do something, but
+    " Plug 'hrsh7th/nvim-cmp'                " I'm not sure what.
     Plug 'dense-analysis/ale'
 call plug#end()
 
-lua <<EOF
-    local cmp = require('cmp')
-    cmp.setup { sources = { { name = 'nvim_lsp' }, } }
-EOF
+" lua <<EOF
+"     local cmp = require('cmp')
+"     cmp.setup { sources = { { name = 'nvim_lsp' }, } }
+" EOF
 
 set foldmethod=marker
 set foldmarker={,}
@@ -56,7 +56,7 @@ set linebreak
 set encoding=utf-8
 set mouse=n
 set number relativenumber
-set signcolumn=number
+" set signcolumn=number
 set noswapfile undofile undodir=~/.cache/nvim/undo
 set nobackup nowritebackup
 set lazyredraw
@@ -83,9 +83,6 @@ let g:scrollbar_shape = {
   \ }
 let g:wimwiki_list = [{
     \ 'path': '$HOME/vimwiki',
-    \ 'template_path': '/home/mitch/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki',
-    \ 'template_default': 'default',
-    \ 'template_ext': '.tpl',
     \ }]
 
 let mapleader = " "
@@ -173,4 +170,4 @@ function! SaveCloseBuffer()
     bdelete!
 endfunction
 command! SaveCloseBuffer call SaveCloseBuffer()
-nnoremap ZZ <cmd>SaveCloseBuffer<CR>
+" nnoremap ZZ <cmd>SaveCloseBuffer<CR>
