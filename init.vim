@@ -77,9 +77,9 @@ let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-sh', 'coc-vimlsp', 'c
 let g:scrollbar_right_offset = 0
 let g:scrollbar_max_size = 40
 let g:scrollbar_shape = {
-  \ 'head': '❚',
+  \ 'head': '█',
   \ 'body': '█',
-  \ 'tail': '❚',
+  \ 'tail': '█',
   \ }
 let g:wimwiki_list = [{
     \ 'path': '$HOME/vimwiki',
