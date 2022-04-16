@@ -24,15 +24,19 @@ call plug#begin()
     " Plug 'hrsh7th/cmp-buffer'              " do something, but
     " Plug 'hrsh7th/nvim-cmp'                " I'm not sure what.
     Plug 'dense-analysis/ale'
+    Plug 'Olical/conjure'
+    Plug 'Olical/aniseed'
 call plug#end()
+
+let g:aniseed#env = v:true
 
 " lua <<EOF
 "     local cmp = require('cmp')
 "     cmp.setup { sources = { { name = 'nvim_lsp' }, } }
 " EOF
 
-set foldmethod=marker
-set foldmarker={,}
+" set foldmethod=marker
+" set foldmarker={,}
 hi link Comment Folded
 set foldtext=MyFoldText()
 function MyFoldText()
@@ -50,7 +54,6 @@ let g:loaded_python3_provider = 0
 let g:loaded_pythonx_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
-set pyx=3
 set termguicolors
 set linebreak
 set encoding=utf-8
