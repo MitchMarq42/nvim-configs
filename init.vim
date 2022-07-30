@@ -1,12 +1,13 @@
+" vim-plug bootstrap
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+" vim-plug declarations
 call plug#begin()
     Plug 'equalsraf/neovim-gui-shim'       " Boilerplate for nvim-qt
-    Plug 'mattn/emmet-vim'                 " Magic HTML IDE thingy
-    Plug 'tpope/vim-commentary'            " comment with gcc
+    Plug 'tpope/vim-commentary'            " comment with gcc unless in vscode. See below.
     Plug 'tpope/vim-surround'              " add surroundings with ys
     Plug 'tpope/vim-repeat'                " boring re-repeat repeater .
     Plug 'junegunn/goyo.vim'               " Remove distractions with :Goyo
@@ -14,21 +15,19 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'         " sorta epic statusline
     Plug 'vim-airline/vim-airline-themes'  " themes for above
     Plug 'pprovost/vim-ps1'                " PowerShell highlighting etc
-    Plug 'vimwiki/vimwiki'                 " html wiki thing
-    Plug 'vimpostor/vim-tpipeline'         " vim statusline in tmux
-    " Plug 'TimUntersberger/neogit' | Plug 'nvim-lua/plenary.nvim'
+    " Plug 'vimwiki/vimwiki'                 " html wiki thing
+    " Plug 'vimpostor/vim-tpipeline'         " vim statusline in tmux
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-    " Plug 'neovim/nvim-lspconfig'
-    " Plug 'hrsh7th/cmp-nvim-lsp'            " These three probably
-    " Plug 'hrsh7th/cmp-buffer'              " do something, but
-    " Plug 'hrsh7th/nvim-cmp'                " I'm not sure what.
-    Plug 'dense-analysis/ale'
-    Plug 'Olical/conjure'
-    Plug 'Olical/aniseed'
+    " Plug 'dense-analysis/ale'
+    " Plug 'Olical/conjure'
+    " Plug 'Olical/aniseed'
 call plug#end()
 
-let g:aniseed#env = v:true
+let g:Hexokinase_highlighters = ['backgroundfull']
+" test color '#ff0000'
+
+" let g:aniseed#env = v:true
 
 " lua <<EOF
 "     local cmp = require('cmp')
@@ -37,13 +36,15 @@ let g:aniseed#env = v:true
 
 " set foldmethod=marker
 " set foldmarker={,}
-hi link Comment Folded
-set foldtext=MyFoldText()
-function MyFoldText()
-  let line = getline(v:foldstart)
-  let sub = substitute(line, '/\*\|\*/\|{\d\=', '', 'g')
-  return sub
-endfunction
+" hi link Comment Folded
+
+if exists(g:vscode)
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
+endif
+
 colorscheme mitch
 let g:airline_theme='ravenpower'
 silent! set cmdheight=0
@@ -54,6 +55,8 @@ let g:loaded_python3_provider = 0
 let g:loaded_pythonx_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
+
+set clipboard+=unnamedplus
 set termguicolors
 set linebreak
 set encoding=utf-8
