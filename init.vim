@@ -38,7 +38,7 @@ let g:Hexokinase_highlighters = ['backgroundfull']
 " set foldmarker={,}
 " hi link Comment Folded
 
-if exists(g:vscode)
+if exists("g:vscode")
   xmap gc  <Plug>VSCodeCommentary
   nmap gc  <Plug>VSCodeCommentary
   omap gc  <Plug>VSCodeCommentary
